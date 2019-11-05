@@ -1,0 +1,5 @@
+composer install
+
+-copiar .env exemple para .env e fazer a alteração para seu caminho do banco
+
+php artisan key:generate
