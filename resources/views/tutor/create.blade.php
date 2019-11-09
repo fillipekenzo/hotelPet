@@ -3,50 +3,44 @@
 <div class="container">
     <div class="col-md-12">
         <form action="{{route('tutor.store')}}" class="form-horizontal" method="POST">
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputEmail4">Email</label>
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="inputPassword4">Password</label>
-                    <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-                </div>
-            </div>
+            @csrf
             <div class="form-group">
-                <label for="inputAddress">Address</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-            </div>
-            <div class="form-group">
-                <label for="inputAddress2">Address 2</label>
-                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                <label for="inputNome">Nome:</label>
+                <input type="text" class="form-control" id="inputNome" placeholder="Nome" name="nome">
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inputCity">City</label>
-                    <input type="text" class="form-control" id="inputCity">
+                    <label for="inputCpf">CPF:</label>
+                    <input type="number" class="form-control" id="inputCpf" placeholder="CPF" name="cpf">
                 </div>
-                <div class="form-group col-md-4">
-                    <label for="inputState">State</label>
-                    <select id="inputState" class="form-control">
-                        <option selected>Choose...</option>
-                        <option>...</option>
-                    </select>
+                <div class="form-group col-md-6">
+                    <label for="inputTelefone">Telefone:</label>
+                    <input type="text" class="form-control" id="inputTelefone" placeholder="Telefone" name="telefone">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputEndereco">Endereço:</label>
+                <input type="text" class="form-control" id="inputEndereco" placeholder="Endereço" name="endereco">
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-5">
+                    <label for="inputFacebook">Facebook</label>
+                    <input type="text" class="form-control" id="inputFacebook" name="facebook">
+                </div>
+                <div class="form-group col-md-5">
+                    <label for="inputInstagram">Instagram</label>
+                    <input type="text" class="form-control" id="inputInstagram" name="instagram">
+                   
                 </div>
                 <div class="form-group col-md-2">
-                    <label for="inputZip">Zip</label>
-                    <input type="text" class="form-control" id="inputZip">
+                    <label for="inputStatus">Status</label>
+                    <select id="inputStatus" class="form-control" name="status">
+                        <option value="ativo" selected>Ativo</option>
+                        <option value="inativo">Inativo</option>
+                    </select>
                 </div>
             </div>
-            <div class="form-group">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
-                        Check me out
-                    </label>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Sign in</button>
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
         </form>
     </div>
 </div>

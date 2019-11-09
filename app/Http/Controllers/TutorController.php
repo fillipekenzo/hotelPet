@@ -36,7 +36,8 @@ class TutorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Tutor::create($request->all());
+        return redirect()->route('tutor.index');
     }
 
     /**
