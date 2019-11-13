@@ -48,7 +48,8 @@ class TutorController extends Controller
      */
     public function show($id)
     {
-        //
+        $tutor = Tutor::find($id);
+        return view('tutor.show') -> with(['tutor'=>$tutor]);
     }
 
     /**
@@ -59,7 +60,8 @@ class TutorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tutor = Tutor::find($id);
+        return view('tutor.edit') -> with(['tutor'=>$tutor]);
     }
 
     /**
@@ -71,7 +73,8 @@ class TutorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tutor = Tutor::find($id)-> update($request->all());
+        return redirect()->route('tutor.index');
     }
 
     /**
@@ -82,6 +85,7 @@ class TutorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tutor = Tutor::find($id)-> delete();
+        return redirect()->route('tutor.index');
     }
 }
