@@ -25,7 +25,7 @@ class TutorController extends Controller
      */
     public function create()
     {
-        //
+        return view('tutor.create');
     }
 
     /**
@@ -36,7 +36,8 @@ class TutorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Tutor::create($request->all());
+        return redirect()->route('tutor.index');
     }
 
     /**
