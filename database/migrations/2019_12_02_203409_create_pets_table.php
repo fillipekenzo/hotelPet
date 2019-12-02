@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTutorsTable extends Migration
+class CreatePetsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateTutorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tutor', function (Blueprint $table) {
+        Schema::create('pets', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('cpf',45);
             $table->string('nome',100);
-            $table->string('endereco',45);
-            $table->string('telefone',45);
-            $table->string('instagram',45);
-            $table->string('facebook',45);
+            $table->deciml('peso');
+            $table->string('raca',45);
+            $table->string('foto',45);
             $table->enum('status',['ativo','inativo'])->default('ativo');
             $table->timestamps();
         });
@@ -33,6 +31,6 @@ class CreateTutorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tutors');
+        Schema::dropIfExists('pets');
     }
 }

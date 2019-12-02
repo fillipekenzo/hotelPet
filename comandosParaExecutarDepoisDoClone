@@ -1,5 +1,15 @@
-composer install
+$composer install
 
 -copiar .env exemple para .env e fazer a alteração para seu caminho do banco
 
-php artisan key:generate
+$php artisan key:generate
+
+
+
+**Comandos para crud:
+
+$php artisan make:model Models(pasta das models)/(nome da model) -m
+
+-Editar atributos na migration gerada
+
+-Criar rota na pasta route
