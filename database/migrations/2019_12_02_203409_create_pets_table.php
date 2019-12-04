@@ -13,12 +13,12 @@ class CreatePetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pets', function (Blueprint $table) {
+        Schema::create('pet', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nome',100);
             $table->decimal('peso');
             $table->string('raca',45);
-            $table->string('foto',45);
+            $table->string('foto',255);
             $table->enum('status',['ativo','inativo'])->default('ativo');
             $table->timestamps();
         });

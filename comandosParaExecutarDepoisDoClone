@@ -13,3 +13,5 @@ $php artisan make:model Models(pasta das models)/(nome da model) -m
 -Editar atributos na migration gerada
 
 -Criar rota na pasta route
+
+$php artisan make:controller (nome controller) -r
