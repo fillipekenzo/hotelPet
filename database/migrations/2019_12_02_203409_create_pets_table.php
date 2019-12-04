@@ -20,8 +20,11 @@ class CreatePetsTable extends Migration
             $table->string('raca',45);
             $table->string('foto',255);
             $table->enum('status',['ativo','inativo'])->default('ativo');
+            $table->unsignedBigInteger('tutor_id');
+            $table->foreign('tutor_id')->references('id')->on('tutor')->onDelete('cascade');
             $table->timestamps();
         });
+       
     }
 
     /**
@@ -31,6 +34,7 @@ class CreatePetsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pets');
+        Schema::dropIfExists('pet');
+
     }
 }

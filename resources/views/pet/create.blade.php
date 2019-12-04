@@ -31,6 +31,16 @@
                     </select>
                 </div>
             </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="tutor_id">Tutor Responsável</label>
+                    <select name="tutor_id" class="form-control">
+                        @foreach( $tutors as $tutor )
+                        <option value="{{ $tutor->id }}">{{ $tutor->nome }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
             <button type="submit" class="btn btn-primary">Cadastrar</button>
         </form>
     </div>

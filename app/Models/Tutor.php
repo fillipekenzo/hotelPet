@@ -8,4 +8,8 @@ class Tutor extends Model
 {
     protected $table = 'tutor';
     protected $fillable = ['nome','cpf','endereco','telefone','facebook','instagram','status'];
+
+    public function pet(){
+        return $this->hasMany(Pet::class,'tutor_id');
+    }
 }

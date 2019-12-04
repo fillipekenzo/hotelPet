@@ -33,6 +33,6 @@ class CreateTutorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tutors');
+        Schema::dropIfExists('tutor');
     }
 }

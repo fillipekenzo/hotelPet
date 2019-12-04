@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pet;
+use App\Models\Tutor;
+
 
 class PetController extends Controller
 {
@@ -15,7 +17,8 @@ class PetController extends Controller
     public function index()
     {
         $pets = Pet::all();
-        return view('pet.index')->with(['pets' => $pets]);
+        $tutors = Tutor::with('pet')->get();
+        return view('pet.index',compact('tutors','pets'));
     }
 
     /**
@@ -25,7 +28,8 @@ class PetController extends Controller
      */
     public function create()
     {
-        return view('pet.create');
+        $tutors = Tutor::all();
+        return view('pet.create',compact('tutors'));
     }
 
     /**
@@ -65,8 +69,9 @@ class PetController extends Controller
      */
     public function edit($id)
     {
+        $tutors = Tutor::all();
         $pet = Pet::find($id);
-        return view('pet.edit')->with(['pet' => $pet]);
+        return view('pet.edit',compact('pet','tutors'));
     }
 
     /**
