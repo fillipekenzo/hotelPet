@@ -33,13 +33,23 @@
                     <input type="text" class="form-control" id="inputInstagram" name="instagram" value="{{old('instagram', $tutor -> instagram)}}">
                    
                 </div>
+                @if($pet->status == "ativo")
                 <div class="form-group col-md-2">
                     <label for="inputStatus">Status</label>
-                    <select id="inputStatus" class="form-control" name="status" value="{{old('status', $tutor -> status)}}">
-                        <option value="ativo">Ativo</option>
+                    <select id="inputStatus" class="form-control" name="status">
+                        <option value="ativo" selected>Ativo</option>
                         <option value="inativo">Inativo</option>
                     </select>
                 </div>
+                @else
+                <div class="form-group col-md-2">
+                    <label for="inputStatus">Status</label>
+                    <select id="inputStatus" class="form-control" name="status">
+                        <option value="ativo">Ativo</option>
+                        <option value="inativo" selected>Inativo</option>
+                    </select>
+                </div>
+                @endif
             </div>
             <button type="submit" class="btn btn-primary">Editar</button>
         </form>
