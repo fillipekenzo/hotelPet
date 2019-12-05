@@ -1,7 +1,8 @@
 <?php
 
 namespace App;
-
+use App\Models\Creche;
+use App\Models\Hospedagem;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -16,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','tipoUsuario'
     ];
 
     /**
@@ -36,4 +37,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function creche(){
+        return $this->hasMany(Creche::class,'pet_id');
+    }
+    public function hospedagem(){
+        return $this->hasMany(Hospedagem::class,'pet_id');
+    }
 }

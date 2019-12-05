@@ -22,7 +22,7 @@
                 </div>
                 <div class="form-group col-md-4">
                     <label for="inputPeso">Peso:</label>
-                    <input type="number" class="form-control" id="inputPeso" placeholder="Peso" name="peso" value="{{old('peso', $pet -> peso)}}">
+                    <input type="number" step="any" class="form-control" id="inputPeso" placeholder="Peso" name="peso" value="{{old('peso', $pet -> peso)}}">
                 </div>
                 @if($pet->status == "ativo")
                 <div class="form-group col-md-4">

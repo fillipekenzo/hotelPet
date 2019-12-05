@@ -15,3 +15,14 @@ $php artisan make:model Models(pasta das models)/(nome da model) -m
 -Criar rota na pasta route
 
 $php artisan make:controller (nome controller) -r
+
+
+
+**Comandos para executar o projeto:
+$php artisan migrate
+
+$php artisan migrate:fresh
+
+$php artisan db:seed
+
+$php artisan serve

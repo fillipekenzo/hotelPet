@@ -15,8 +15,8 @@
                     <p class="card-text">
                         <b>ID:</b> {{$pet->id}} <br>
                         <b>Raça:</b> {{ $pet->raca }}<br>
-                        <b>Peso:</b>{{ $pet->peso }}<br>
-                        <b>Tutor:</b>{{$pet->tutor->nome }}<br>
+                        <b>Peso:</b>{{ $pet->peso }} Kg<br>
+                        <b>Tutor:</b>{{ $pet->tutor->nome }}<br>
                     </p>
                 </div>
                 <div class="card-footer">
@@ -28,13 +28,8 @@
             </div>
         </div>
         @endforeach
-
     </div>
-
-    <div class="col-md-12">
-
-
-
+    <!-- <div class="col-md-12">
         <table class="table table-bordered table-responsive">
             <thead class="thead-light">
                 <tr>
@@ -66,7 +61,7 @@
                 @endforeach
             </tbody>
         </table>
-    </div>
+    </div> -->
 </div>
 
 @endsection

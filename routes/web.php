@@ -9,6 +9,10 @@ Route::resource('/tutor', 'TutorController');
 
 Route::resource('/pet', 'PetController');
 
+Route::resource('/creche', 'CrecheController');
+
+Route::resource('/hospedagem', 'HospedagemController');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

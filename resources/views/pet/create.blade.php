@@ -21,7 +21,7 @@
                 </div>
                 <div class="form-group col-md-4">
                     <label for="inputPeso">Peso:</label>
-                    <input type="number" class="form-control" id="inputPeso" placeholder="Peso" name="peso">
+                    <input type="number" step="any" class="form-control" id="inputPeso" placeholder="Peso" name="peso">
                 </div>
                 <div class="form-group col-md-4">
                     <label for="inputStatus">Status</label>
