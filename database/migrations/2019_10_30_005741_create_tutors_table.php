@@ -21,6 +21,7 @@ class CreateTutorsTable extends Migration
             $table->string('telefone',45);
             $table->string('instagram',45);
             $table->string('facebook',45);
+            $table->string('foto',255);
             $table->enum('status',['ativo','inativo'])->default('ativo');
             $table->timestamps();
         });

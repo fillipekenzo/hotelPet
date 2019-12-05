@@ -36,7 +36,13 @@ class TutorController extends Controller
      */
     public function store(Request $request)
     {
-        Tutor::create($request->all());
+        $data = $request->all();
+        if ($request->file('foto')->isValid()) {
+            $nameFile = $request->nome . '.' . $request->foto->extension();
+            $request->file('foto')->storeAs('tutors',$nameFile);
+            $data['foto'] = asset('storage/tutors/' . $nameFile); 
+        }
+        Tutor::create($data);
         return redirect()->route('tutor.index');
     }
 

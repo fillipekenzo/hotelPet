@@ -10,7 +10,7 @@
                     <input type="text" class="form-control" id="inputNome" placeholder="Nome" name="nome">
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="inputFoto">Escolha a foto do seu pet</label>
+                    <label for="inputFoto">Escolha a foto do pet</label>
                     <input type="file" class="form-control-file" id="inputFoto" name="foto">
                 </div>
             </div>

@@ -2,11 +2,17 @@
 @section('content')
 <div class="container">
     <div class="col-md-12">
-        <form action="{{route('tutor.store')}}" class="form-horizontal" method="POST">
+        <form action="{{route('tutor.store')}}"  enctype="multipart/form-data" class="form-horizontal" method="POST">
             @csrf
-            <div class="form-group">
-                <label for="inputNome">Nome:</label>
-                <input type="text" class="form-control" id="inputNome" placeholder="Nome" name="nome">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputNome">Nome:</label>
+                    <input type="text" class="form-control" id="inputNome" placeholder="Nome" name="nome">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputFoto">Escolha a foto do tutor</label>
+                    <input type="file" class="form-control-file" id="inputFoto" name="foto">
+                </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">

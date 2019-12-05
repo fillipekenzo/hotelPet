@@ -2,12 +2,18 @@
 @section('content')
 <div class="container">
     <div class="col-md-12">
-        <form action="{{route('pet.update', ['pet' => $pet -> id])}}" class="form-horizontal" method="POST">
+        <form action="{{route('pet.update', ['pet' => $pet -> id])}}" enctype="multipart/form-data" class="form-horizontal" method="POST">
             @csrf
             @method('PUT')
-            <div class="form-group">
-                <label for="inputNome">Nome:</label>
-                <input type="text" class="form-control" id="inputNome" placeholder="Nome" name="nome" value="{{old('nome', $pet -> nome)}}">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputNome">Nome:</label>
+                    <input type="text" class="form-control" id="inputNome" placeholder="Nome" name="nome" value="{{old('nome', $pet -> nome)}}">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputFoto">Escolha a foto do pet</label>
+                    <input type="file" class="form-control-file" id="inputFoto" name="foto" value="{{old('foto', $pet -> foto)}}">
+                </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-4">

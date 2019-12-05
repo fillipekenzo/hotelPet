@@ -44,7 +44,7 @@ class PetController extends Controller
         if ($request->file('foto')->isValid()) {
             $nameFile = $request->nome . '.' . $request->foto->extension();
             $request->file('foto')->storeAs('pets',$nameFile);
-            $data['foto'] = dirname("C:/xampp/htdocs/hotelPet/storage/app/public/pets/x") ."/" . $nameFile ; 
+            $data['foto'] = asset('storage/pets/' . $nameFile); 
         }
         Pet::create($data);
         return redirect()->route('pet.index');

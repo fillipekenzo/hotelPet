@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="col-md-12">
-        <table class="table table-bordered">
+        <table class="table table-bordered table-responsive">
             <thead class="thead-light">
                 <tr>
                     <th scope="col">ID</th>
@@ -13,6 +13,7 @@
                     <th scope="col">Telefone</th>
                     <th scope="col">Facebook</th>
                     <th scope="col">Instagram</th>
+                    <th scope="col">Foto</th>
                     <th scope="col">Status</th>
                     <th scope="col">Ações</th>
                 </tr>
@@ -28,11 +29,11 @@
                     <td>{{ $tutor->telefone }}</td>
                     <td>{{ $tutor->facebook }}</td>
                     <td>{{ $tutor->instagram }}</td>
+                    <td>{{ $tutor->foto }}</td>
                     <td>{{ $tutor->status }}</td>
                     <td>
                         <a class="btn btn-primary btn-sm" href="{{ route('tutor.show', ['tutor' => $tutor->id]) }}" role="button">Visualizar</a>
                         <a class="btn btn-warning btn-sm" href="{{ route('tutor.edit', ['tutor' => $tutor->id]) }}" role="button">Editar</a>
-                        <a class="btn btn-danger btn-sm" href="{{ route('tutor.destroy', ['tutor' => $tutor->id]) }}" role="button">Excluir</a>
                     </td>
                 </tr>
                 @endforeach
