@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@auth
 <div class="container">
     <div class="col-md-12">
         <table class="table table-bordered table-responsive">
