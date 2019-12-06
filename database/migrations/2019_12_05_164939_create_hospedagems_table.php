@@ -15,8 +15,8 @@ class CreateHospedagemsTable extends Migration
     {
         Schema::create('hospedagem', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->dateTimeTz('data_entrada');
-            $table->dateTimeTz('data_saida')->nullable();
+            $table->date('data_entrada');
+            $table->date('data_saida')->nullable();
             $table->decimal('valor_diaria');
             $table->decimal('valor_total')->nullable();
             $table->string('observacoes',255);

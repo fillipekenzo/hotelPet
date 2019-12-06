@@ -23,6 +23,12 @@ class TableSeeder extends Seeder
             'password'  => bcrypt('12345678'),
             'tipoUsuario' => 'admin',
         ]);
+        User::create([
+            'name'      => 'Juliano',
+            'email'     => 'juliano@email.com',
+            'password'  => bcrypt('12345678'),
+            'tipoUsuario' => 'func',
+        ]);
         Tutor::create([
             'nome'      => 'Amanda Rodrigues',
             'cpf'     => '00011122233',
@@ -47,13 +53,13 @@ class TableSeeder extends Seeder
             'descricao'      => 'Porte pequeno',
             'valor_mensal'     => 299.90,
             'porte'  => 'P',
-        ],
-        [
+        ]);
+        PacoteCreche::create([
             'descricao'      => 'Porte médio',
             'valor_mensal'     => 399.90,
             'porte'  => 'M',
-        ],
-        [
+        ]);
+        PacoteCreche::create([
             'descricao'      => 'Porte grande',
             'valor_mensal'     => 499.90,
             'porte'  => 'G',
@@ -64,12 +70,12 @@ class TableSeeder extends Seeder
             'observacoes'     => 'Cuidar bem do Rex',
             'pet_id'  => 1,
             'user_id'  => 1,
-            'pacoteCreche_id'  => 1,
+            'pacote_creche_id'  => 1,
             'status' => 'ativo',
         ]);
 
         Hospedagem::create([
-            'data_entrada'      => '2019-03-12 11:12:13',
+            'data_entrada'      => '2019-03-12',
             'valor_diaria'      => 99.90,
             'observacoes'     => 'Cuidar bem do Rex',
             'pet_id'  => 1,

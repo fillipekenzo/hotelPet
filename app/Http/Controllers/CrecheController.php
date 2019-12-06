@@ -14,7 +14,8 @@ class CrecheController extends Controller
     {
         $creches = Creche::all();
         $pets = Pet::with('creche')->get();
-        return view('creche.index',compact('creches','pets'));
+        $pacoteCreches = PacoteCreche::with('creche')->get();
+        return view('creche.index',compact('creches','pets','pacoteCreches'));
     }
 
     /**
@@ -97,5 +98,13 @@ class CrecheController extends Controller
     {
         $creche = Creche::find($id)->delete();
         return redirect()->route('creche.index');
+    }
+    public function finalizar($id){
+        $pets = Pet::all();
+        $creche = Creche::find($id);
+        $creche['status'] = 'inativo';
+        $creche->save();
+        return view('creche.final',compact('creche','pets'));
+
     }
 }

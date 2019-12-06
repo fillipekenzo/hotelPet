@@ -20,8 +20,8 @@ class CreateCrechesTable extends Migration
             $table->enum('status',['ativo','inativo'])->default('ativo');
             $table->unsignedBigInteger('pet_id');
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('pacoteCreche_id');
-            $table->foreign('pacoteCreche_id')->references('id')->on('pacote_creche')->onDelete('cascade');
+            $table->unsignedBigInteger('pacote_creche_id');
+            $table->foreign('pacote_creche_id')->references('id')->on('pacote_creche')->onDelete('cascade');
             $table->foreign('pet_id')->references('id')->on('pet')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

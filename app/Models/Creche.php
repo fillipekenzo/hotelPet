@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 class Creche extends Model
 {
     protected $table = 'creche';
-    protected $fillable = ['data','observacoes','status','pet_id','user_id','pacoteCreche_id'];
+    protected $fillable = ['data','observacoes','status','pet_id','user_id','pacote_creche_id'];
     public function user(){
         return $this->belongsTo(User::class);
     }

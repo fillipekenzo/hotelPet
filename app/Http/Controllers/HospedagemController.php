@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Hospedagem;
 use App\Models\Pet;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HospedagemController extends Controller
 {
@@ -40,6 +42,8 @@ class HospedagemController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        $data['data_entrada'] =  Carbon::createFromFormat('Y-m-d', $data['data_entrada']);
+        $data['user_id'] = Auth::user()->id;
         // if ($request->file('foto')->isValid()) {
         //     $nameFile = $request->nome . '.' . $request->foto->extension();
         //     $request->file('foto')->storeAs('pets',$nameFile);
@@ -96,5 +100,18 @@ class HospedagemController extends Controller
     {
         $hospedagem = Hospedagem::find($id)->delete();
         return redirect()->route('hospedagem.index');
+    }
+
+    public function finalizar($id){
+        $pets = Pet::all();
+        $hospedagem = Hospedagem::find($id);
+
+        $hospedagem['data_saida'] =  date('Y-m-d');
+        (int)$dias = Carbon::createFromFormat('Y-m-d',$hospedagem['data_saida'])->diffInDays(Carbon::createFromFormat('Y-m-d',$hospedagem['data_entrada']));
+        $hospedagem['valor_total'] = $dias * $hospedagem['valor_diaria'];
+        $hospedagem['status'] = 'inativo';
+        $hospedagem->save();
+        return view('hospedagem.final',compact('hospedagem','pets','dias'));
+
     }
 }
