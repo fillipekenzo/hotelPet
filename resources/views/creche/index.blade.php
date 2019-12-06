@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+@auth
 <div class="container">
     <div class="col-md-12">
         <table class="table table-bordered">
@@ -26,7 +27,9 @@
                     <td>{{ $creche->status }}</td>
                     <td>
                         <a class="btn btn-primary btn-sm" href="{{ route('creche.show', ['creche' => $creche->id]) }}" role="button">Visualizar</a>
+                        @if(Auth::user()->tipoUsuario == 'admin')
                         <a class="btn btn-warning btn-sm" href="{{ route('creche.edit', ['creche' => $creche->id]) }}" role="button">Editar</a>
+                        @endif
                     </td>
                 </tr>
                 @endforeach
@@ -35,5 +38,7 @@
         </table>
     </div>
 </div>
-
+@else
+<a href="{{ route('login') }}">Login</a>
+@endauth
 @endsection

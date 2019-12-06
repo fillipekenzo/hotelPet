@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Creche;
+use App\Models\PacoteCreche;
 use App\Models\Pet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -24,7 +25,8 @@ class CrecheController extends Controller
     public function create()
     {
         $pets = Pet::all();
-        return view('creche.create',compact('pets'));
+        $pacoteCreches = PacoteCreche::all();
+        return view('creche.create',compact('pets','pacoteCreches'));
     }
 
     /**

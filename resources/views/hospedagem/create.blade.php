@@ -1,5 +1,10 @@
 @extends('layouts.app')
 @section('content')
+
+@auth
+@switch(Auth::user()->tipoUsuario)
+@case('admin')
+
 <div class="container">
     <div class="col-md-12">
         <form action="{{route('hospedagem.store')}}" enctype="multipart/form-data" class="form-horizontal" method="POST">
@@ -39,4 +44,13 @@
         </form>
     </div>
 </div>
+
+@break
+@case('func')
+Voce não tem permissão!
+@break
+@endswitch
+@else
+<a href="{{ route('login') }}">Login</a>
+@endauth
 @endsection

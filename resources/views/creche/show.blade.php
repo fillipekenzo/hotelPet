@@ -1,6 +1,6 @@
 @extends('layouts.app')
-
 @section('content')
+@auth
 <div class="container">
     <div class="col-md-12">
         <h1 class="h1">ID: {{$creche -> id}}</h1>
@@ -13,9 +13,13 @@
         @csrf
         <input type="hidden" name="_method" value="DELETE">
         <a class="btn btn-primary" href="{{ route('creche.index') }}" role="button">Voltar</a>
-        <button class="btn btn-danger" type="submit" >Deletar Tutor: {{$creche->id}}</button>
+        @if(Auth::user()->tipoUsuario == 'admin')
+        <button class="btn btn-danger" type="submit">Deletar Tutor: {{$creche->id}}</button>
+        @endif
     </form>
-    
-</div>
 
+</div>
+@else
+<a href="{{ route('login') }}">Login</a>
+@endauth
 @endsection

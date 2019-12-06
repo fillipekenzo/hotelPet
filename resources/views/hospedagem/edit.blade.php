@@ -1,5 +1,10 @@
 @extends('layouts.app')
 @section('content')
+
+@auth
+@switch(Auth::user()->tipoUsuario)
+@case('admin')
+
 <div class="container">
     <div class="col-md-12">
         <form action="{{route('hospedagem.update', ['hospedagem' => $hospedagem -> id])}}" enctype="multipart/form-data" class="form-horizontal" method="POST">
@@ -31,7 +36,8 @@
                     <label for="pet_id">Pet</label>
                     <select name="pet_id" class="form-control">
                         @foreach( $pets as $pet )
-                        <option value="{{ $pet->id }}" @if($pet->id === $hospedagem->pet_id)>{{ $pet->nome }}</option>
+                        <option value="{{ $pet->id }}" @if($pet->id === $hospedagem->pet_id)
+                        @endif>{{ $pet->nome }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -43,11 +49,20 @@
                 </div>
                 <div class="form-group col-md-8">
                     <label for="inputObservacoes">Observações:</label>
-                    <textarea class="form-control" id="inputObservacoes" rows="3" name="observacoes" value="{{old('observacoes', $hospedagem -> observacoes)}}"></textarea>
+                    <textarea class="form-control" id="inputObservacoes" rows="3" name="observacoes" >{{old('observacoes', $hospedagem -> observacoes)}}</textarea>
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Editar</button>
         </form>
     </div>
 </div>
+
+@break
+@case('func')
+Voce não tem permissão!
+@break
+@endswitch
+@else
+<a href="{{ route('login') }}">Login</a>
+@endauth
 @endsection

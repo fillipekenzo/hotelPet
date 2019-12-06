@@ -33,7 +33,9 @@
                     <td>{{ $tutor->status }}</td>
                     <td>
                         <a class="btn btn-primary btn-sm" href="{{ route('tutor.show', ['tutor' => $tutor->id]) }}" role="button">Visualizar</a>
+                        @if(Auth::user()->tipoUsuario == 'admin')
                         <a class="btn btn-warning btn-sm" href="{{ route('tutor.edit', ['tutor' => $tutor->id]) }}" role="button">Editar</a>
+                        @endif
                     </td>
                 </tr>
                 @endforeach
@@ -41,5 +43,7 @@
         </table>
     </div>
 </div>
-
+@else
+<a href="{{ route('login') }}">Login</a>
+@endauth
 @endsection

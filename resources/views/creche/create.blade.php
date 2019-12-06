@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
 @auth
 @switch(Auth::user()->tipoUsuario)
 @case('admin')
@@ -28,13 +29,24 @@
                     </select>
                 </div>
             </div>
-            <div class="form-group">
-                <label for="inputObservacoes">Observações:</label>
-                <textarea class="form-control" id="inputObservacoes" rows="3" name="observacoes"></textarea>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="pet_id">Pacote Creche</label>
+                    <select name="pet_id" class="form-control">
+                        @foreach( $pacoteCreches as $pacoteCreche )
+                        <option value="{{ $pacoteCreche->id }}">{{ $pacoteCreche->descricao }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group col-md-8">
+                    <label for="inputObservacoes">Observações:</label>
+                    <textarea class="form-control" id="inputObservacoes" rows="3" name="observacoes"></textarea>
+                </div>
             </div>
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
-        </form>
     </div>
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </form>
+</div>
 </div>
 @break
 @case('func')

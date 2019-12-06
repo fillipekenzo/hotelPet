@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@auth
 
 @section('content')
 <div class="container">
@@ -22,7 +23,9 @@
                 <div class="card-footer">
                     <div class="mx-auto">
                         <a class="btn btn-primary btn-sm" href="{{ route('pet.show', ['pet' => $pet->id]) }}" role="button">Visualizar</a>
+                        @if(Auth::user()->tipoUsuario == 'admin')
                         <a class="btn btn-warning btn-sm" href="{{ route('pet.edit', ['pet' => $pet->id]) }}" role="button">Editar</a>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -63,5 +66,7 @@
         </table>
     </div> -->
 </div>
-
+@else
+<a href="{{ route('login') }}">Login</a>
+@endauth
 @endsection

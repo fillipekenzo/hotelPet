@@ -1,5 +1,9 @@
 @extends('layouts.app')
 @section('content')
+
+@auth
+@switch(Auth::user()->tipoUsuario)
+@case('admin')
 <div class="container">
     <div class="col-md-12">
         <form action="{{route('creche.update', ['creche' => $creche -> id])}}" enctype="multipart/form-data" class="form-horizontal" method="POST">
@@ -41,7 +45,7 @@
             </div>
             <div class="form-group">
                 <label for="inputObservacoes">Observações:</label>
-                <textarea class="form-control" id="inputObservacoes" rows="3" value="{{old('observacoes', $creche -> observacoes)}}"></textarea>
+                <textarea class="form-control" id="inputObservacoes" rows="3">{{old('observacoes', $creche -> observacoes)}}</textarea>
             </div>
 
     </div>
@@ -49,4 +53,13 @@
     </form>
 </div>
 </div>
+
+@break
+@case('func')
+Voce não tem permissão!
+@break
+@endswitch
+@else
+<a href="{{ route('login') }}">Login</a>
+@endauth
 @endsection
