@@ -39,8 +39,8 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-4">
-                        <label for="pet_id">Pacote Creche</label>
-                        <select name="pet_id" class="form-control">
+                        <label for="pacote_creche_id">Pacote Creche</label>
+                        <select name="pacote_creche_id" class="form-control">
                             @foreach( $pacoteCreches as $pacoteCreche )
                             <option value="{{ $pacoteCreche->id }}">{{ $pacoteCreche->descricao }}</option>
                             @endforeach
